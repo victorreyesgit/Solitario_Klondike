@@ -39,7 +39,12 @@ html,body{margin:0;height:100%;overflow:hidden;color:#fff;touch-action:manipulat
 #give{flex:none;min-height:44px;padding:0 16px;font-size:17px;background:#7a2b2b;border-radius:14px;box-shadow:0 3px 0 rgba(0,0,0,.4)}
 @keyframes pop{from{transform:scale(.4);opacity:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style></head><body>
+</style>  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Solitario">
+</head><body>
 <div id="app">
  <div id="bar">
   <button class="btn" id="hint" aria-label="Pista"><svg viewBox="0 0 24 24" width="38" height="38"><path fill="#ffe066" stroke="#7a5a00" stroke-width="1.5" d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><rect x="8.5" y="18" width="7" height="2.5" rx="1" fill="#fff"/><rect x="9.5" y="21" width="5" height="1.8" rx=".9" fill="#fff"/></svg>PISTA</button>
@@ -300,4 +305,5 @@ init();
 let saved=null;try{saved=JSON.parse(LS.getItem('kl_game'))}catch(e){}
 if(saved&&saved.g&&saved.g.t&&!won(saved.g)){g=saved.g;hist=saved.hist||[];busy=false;render();checkAuto()}
 else newGame();
-</script></body></html>
+</script><script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');</script>
+</body></html>
